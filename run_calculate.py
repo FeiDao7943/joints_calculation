@@ -12,7 +12,6 @@ warnings.filterwarnings("ignore")
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--joint_num', type=int, default=0, help='number of joints')
-# parser.add_argument('--max_epoch', type=int, default=180, help='Epoch to run [default: 180]')
 FLAGS = parser.parse_args()
 
 
