@@ -79,6 +79,7 @@ def velocity(length, angle, angular_v):
 
 
 if __name__ == '__main__':
+    # use to test function
     pi = math.pi
     length = np.zeros(3)
     angle = np.zeros(3)
