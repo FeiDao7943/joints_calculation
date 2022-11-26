@@ -4,7 +4,9 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 import argparse
 from drawer import draw_fig, print_part
+from jacobian import velocity, jacobian_2
 from rotate import x_rot, y_rot, z_rot
+from torque import torque_cal
 from joint_posi import cor_calculate
 import warnings
 warnings.filterwarnings("ignore")
@@ -12,6 +14,7 @@ warnings.filterwarnings("ignore")
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--joint_num', type=int, default=0, help='number of joints')
+
 FLAGS = parser.parse_args()
 
 
@@ -49,25 +52,43 @@ def main_processor(joint_num):
     q(i)_z = rotation angle respect to z-axis
     l(i) = length of the link
     '''
-
+    ag = math.acos(1/math.pow(2, 0.5))
     # joint 1 ---------
     q1_x = pi * 0
-    q1_y = pi * -1 / 3
+    q1_y = pi * 0
     q1_z = pi * 1 / 6
-    l1 = 2
+
+    q1_x_angu = 0
+    q1_y_angu = 0
+    q1_z_angu = 0
+
+    l1 = 4
 
     # joint 2 ---------
     q2_x = pi * 0
-    q2_y = pi * 1 / 6
-    q2_z = pi * 1 / 8
+    q2_y = pi * 0
+    q2_z = pi * 0
+
+    q2_x_angu = 0
+    q2_y_angu = 0
+    q2_z_angu = 0
+
     l2 = 2
 
     # joint 3 ---------
     q3_x = pi * 0
-    q3_y = pi * 1 / 6
-    q3_z = pi * -1 / 6
-    l3 = 1
+    q3_y = pi * 0
+    q3_z = pi * 0
 
+    q3_x_angu = 0
+    q3_y_angu = 0
+    q3_z_angu = 0
+
+    l3 = 2
+
+    link_length = [l1, l2, l3]
+    angle = [q1_z, q2_z, q3_z]
+    angular_v = [q1_z_angu, q2_z_angu, q3_z_angu]
     # conclusion
     length_dic = np.zeros(joint_num)
     angle_dic = np.zeros((joint_num, 3))
@@ -79,16 +100,32 @@ def main_processor(joint_num):
 
     # calculating part
     points_list, axis_list = cor_calculate(1, points_list, length_list, axis_list, l1, q1_x, q1_y, q1_z)
-    points_list, axis_list = cor_calculate(2, points_list, length_list, axis_list, l2, q2_x, q2_y, q2_z)
-    points_list, axis_list = cor_calculate(3, points_list, length_list, axis_list, l3, q3_x, q3_y, q3_z)
+    # points_list, axis_list = cor_calculate(2, points_list, length_list, axis_list, l2, q2_x, q2_y, q2_z)
+    # points_list, axis_list = cor_calculate(3, points_list, length_list, axis_list, l3, q3_x, q3_y, q3_z)
 
-    # print_part([0, 0, 0], points_list)
-    # draw_fig(3, points_list, axis_list, 'joint')
+    print_part([0, 0, 0], points_list)
+
+    jacobian_2(link_length, angle, angular_v)
+    final_velocity = velocity(link_length, angle, angular_v)
+    print("final velocity", end=' ')
+    print(final_velocity)
+
+    torque_list = torque_cal(link_length, angle, 0, 98)
+    print("torque list", end=' ')
+    print(torque_list)
+
+    draw_fig(3, points_list, axis_list, final_velocity, 'joint')
+    # draw_fig(3, points_list, axis_list, final_velocity, 'velocity')
+    
+    # print(l1*math.cos(q1_z)+l2*math.cos(q1_z+q2_z)+l3*math.cos(q1_z+q2_z+q3_z))
+    # print(l1*math.sin(q1_z)+l2*math.sin(q1_z+q2_z)+l3*math.sin(q1_z+q2_z+q3_z))
+
 
 
 if __name__ == '__main__':
     # variable of main() is the number of joints
     main_processor(FLAGS.joint_num)
+
 
 
 

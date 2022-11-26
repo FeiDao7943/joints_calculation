@@ -24,7 +24,7 @@ def cor_calculate(num, points_dic, length_dic, axis_draw, lth, q_x, q_y, q_z):
 
     aft_xrot = x_rot(new_cor, q_x)
     new_cor = aft_xrot
-    aft_yrot = y_rot(new_cor, q_y)
+    aft_yrot = y_rot(new_cor, -q_y)
     new_cor = aft_yrot
     aft_zrot = z_rot(new_cor, q_z)
     new_cor = aft_zrot
@@ -35,7 +35,7 @@ def cor_calculate(num, points_dic, length_dic, axis_draw, lth, q_x, q_y, q_z):
         new_cor_axis = axis_draw[num-1, i, :] - points_dic[num, :]
         aft_xrot = x_rot(new_cor_axis, q_x)
         new_cor_axis = aft_xrot
-        aft_yrot = y_rot(new_cor_axis, q_y)
+        aft_yrot = y_rot(new_cor_axis, -q_y)
         new_cor_axis = aft_yrot
         aft_zrot = z_rot(new_cor_axis, q_z)
         new_cor_axis = aft_zrot
