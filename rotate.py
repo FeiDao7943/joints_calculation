@@ -24,3 +24,4 @@ def z_rot(ori, q_in):
              [math.sin(ang), math.cos(ang), 0],
              [0, 0, 1]]
     return np.dot(ori, z_mat)
+

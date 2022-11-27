@@ -17,3 +17,10 @@ def torque_cal(link_length, angle, force_x, force_y):
     torque_list[2] = force_y * (+ link_length[2] * math.cos(angle[0] + angle[1] + angle[2])) + \
                 force_x * (-link_length[2] * math.sin(angle[0] + angle[1] + angle[2]))
     return torque_list
+
+
+if __name__ == '__main__':
+    a = np.zeros(0)
+    b = np.zeros(0)
+    c = torque_cal(a, b, 0, 0)
+    print(c)
