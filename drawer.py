@@ -9,7 +9,7 @@ import numpy as np
 from rotate import z_rot
 
 
-def draw_fig(num, coor_dic, axi_dic, final_velocity, draw_type='None'):
+def draw_fig(num, coor_dic, axi_dic, final_velocity=None, draw_type='None'):
     if not draw_type == 'None':
         fig = plt.figure()
         ax = Axes3D(fig)

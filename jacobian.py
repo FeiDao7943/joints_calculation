@@ -27,7 +27,7 @@ def jacobian_2(length, angle, angular_v):
     j3 = j3.T
 
     ans = np.dot(j1, angular_v[0])+np.dot(j2, angular_v[1])+np.dot(j3, angular_v[2])
-    print(ans)
+    return ans
 
 
 def jacobian_matrix(length, angle, angular_v):
