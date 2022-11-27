@@ -1,7 +1,3 @@
-# -- coding: utf-8 --
-# @time :
-# @author : unusualroutetaker
-# @email : feidaofeidao@outlook.com
 import numpy as np
 import math
 from rotate import x_rot, y_rot, z_rot

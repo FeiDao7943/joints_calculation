@@ -1,7 +1,3 @@
-# -- coding: utf-8 --
-# @time :
-# @author : unusualroutetaker
-# @email : feidaofeidao@outlook.com
 import numpy as np
 import math
 

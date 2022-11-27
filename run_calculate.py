@@ -61,7 +61,7 @@ def main_processor(joint_num):
     q1_z = pi * 1 / 6
 
     q1_x_angu = 0
-    q1_y_angu = 0
+    q1_y_angu = pi * 1 / 6
     q1_z_angu = pi * 1 / 6
 
     l1 = 2
