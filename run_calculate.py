@@ -1,3 +1,11 @@
+"""
+Welcome to joint-manipulator calculation
+All these files are programming for the course work
+
+Maybe this script still has some 'bug', but it can complete the drawing job of coursework
+"""
+
+
 import numpy as np
 import math
 import matplotlib.pyplot as plt
