@@ -2,8 +2,8 @@
 
 ### Example Figure
 <div align=center>
-<img src="https://github.com/FeiDao7943/joints_calculation/blob/main/example_figure/example.png" width="500px">
-<img src="https://github.com/FeiDao7943/joints_calculation/blob/main/example_figure/example2.png" width="500px">
+<img src="https://github.com/FeiDao7943/joints_calculation/blob/main/example_figure/example.png" width="400px">
+<img src="https://github.com/FeiDao7943/joints_calculation/blob/main/example_figure/example2.png" width="400px">
 </div>
 
 
