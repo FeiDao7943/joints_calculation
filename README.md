@@ -20,7 +20,7 @@ There are 5 parameters need to define in common line. If the user wants to do al
 **2023/1/4** 
 >* The code has been cluttered during the programming process in order to temporarily implement the functionality, so a new collated code may be uploaded to another repository in the near future, or perhaps a branch.
 
-**2023/1/4** 
+**2023/1/8** 
 >* There is now a public project in my another repository called `manipulator`, which is an improved version of this project (not yet fully completed).
 > Web address: https://github.com/FeiDao7943/manipulator.git
 
